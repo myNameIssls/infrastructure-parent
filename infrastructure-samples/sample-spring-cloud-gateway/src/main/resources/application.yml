@@ -1,0 +1,26 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: jd_route
+          uri: https://www.jd.com
+          predicates:
+            - Path=/jd
+        - id: router_0
+          uri: http://localhost:7070
+          predicates:
+            - Path=/sample/index
+#            - Cookie=name, tyrone
+        # header断言，如果请求中包含X-Request-Id，且值等于001，则匹配成功
+        - id: header_router
+          uri: http://localhost:7070
+          predicates:
+            - Path=/sample/gateway/header
+            - Header=X-Request-Id, 001
+
+        # Host断言，http://www.tyrone.com:8080/sample/gateway/host
+        - id: Host_Router
+          uri: http://localhost:7070
+          predicates:
+            - Path=/sample/gateway/host
+            - Host=www.tyrone.com:8080  # tyrone.com可以通过配置host方式实现

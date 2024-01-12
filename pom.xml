@@ -32,7 +32,12 @@
     <modules>
         <module>infrastructure-dependencies</module>
         <module>infrastructure-core</module>
-        <module>common-service</module>
+        <module>infrastructure-common-service</module>
+        <module>infrastructure-gateway-service</module>
+        <module>infrastructure-outreach-service</module>
+        <module>infrastructure-auth-service</module>
+        <module>infrastructure-sdk</module>
+        <module>infrastructure-samples</module>
     </modules>
 
     <dependencyManagement>
