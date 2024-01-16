@@ -5,22 +5,23 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.tyrone.infrastructure</groupId>
-        <artifactId>infrastructure-parent</artifactId>
+        <artifactId>sample-spring-authorization-server-parent</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infrastructure-samples</artifactId>
-    <packaging>pom</packaging>
-    <modules>
-        <module>sample-spring-cloud-gateway</module>
-        <module>sample-common-service</module>
-        <module>sample-spring-authorization-server-parent</module>
-    </modules>
+    <artifactId>sample-spring-authorization-server</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-oauth2-authorization-server</artifactId>
+        </dependency>
+    </dependencies>
 
 </project>
