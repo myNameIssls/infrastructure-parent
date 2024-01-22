@@ -5,29 +5,16 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.tyrone.infrastructure</groupId>
-        <artifactId>infrastructure-parent</artifactId>
+        <artifactId>infrastructure-sdk</artifactId>
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <artifactId>infrastructure-sdk</artifactId>
-    <packaging>pom</packaging>
-
-    <modules>
-        <module>infrastructure-sdk-common</module>
-    </modules>
+    <artifactId>infrastructure-sdk-common</artifactId>
 
     <properties>
         <maven.compiler.source>21</maven.compiler.source>
         <maven.compiler.target>21</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <dependencies>
-        <dependency>
-            <groupId>com.tyrone.infrastructure</groupId>
-            <artifactId>infrastructure-core</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-    </dependencies>
 
 </project>

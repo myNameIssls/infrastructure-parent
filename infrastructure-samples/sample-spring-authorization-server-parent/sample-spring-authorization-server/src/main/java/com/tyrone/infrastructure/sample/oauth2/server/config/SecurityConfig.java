@@ -41,6 +41,12 @@ import java.util.UUID;
 @EnableWebSecurity
 public class SecurityConfig {
 
+    /**
+     * Spring Authorization Server 相关配置
+     * 此处方法与下面defaultSecurityFilterChain都是SecurityFilterChain配置，配置的内容有点区别，
+     * 因为Spring Authorization Server是建立在Spring Security 基础上的，defaultSecurityFilterChain方法主要
+     * 配置Spring Security相关的东西，而此处authorizationServerSecurityFilterChain方法主要配置OAuth 2.1和OpenID Connect 1.0相关的东西
+     */
     @Bean
     @Order(1)
     public SecurityFilterChain authorizationServerSecurityFilterChain(HttpSecurity http)
@@ -74,6 +80,8 @@ public class SecurityConfig {
         http
                 //设置所有请求都需要认证，未认证的请求都被重定向到login页面进行登录
                 .authorizeHttpRequests((authorize) -> authorize
+                        // 放行静态资源
+                        .requestMatchers("/assets/**", "/login").permitAll()
                         .anyRequest().authenticated()
                 )
                 // 由Spring Security过滤链中UsernamePasswordAuthenticationFilter过滤器拦截处理“login”页面提交的登录信息。
