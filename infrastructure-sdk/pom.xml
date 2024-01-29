@@ -14,6 +14,7 @@
 
     <modules>
         <module>infrastructure-sdk-common</module>
+        <module>infrastructure-sdk-outreach</module>
     </modules>
 
     <properties>

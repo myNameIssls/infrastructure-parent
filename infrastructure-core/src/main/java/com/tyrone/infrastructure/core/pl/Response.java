@@ -1,6 +1,6 @@
 package com.tyrone.infrastructure.core.pl;
 
-import com.tyrone.infrastructure.core.enums.GlobalEnumCode;
+import com.tyrone.infrastructure.core.enums.GlobalResponseCode;
 
 import java.io.Serializable;
 
@@ -19,11 +19,11 @@ public class Response<D> implements Serializable {
     }
 
     public static <T> Response<T> success(){
-        return new Response<>(GlobalEnumCode.SUCCESS.code(), GlobalEnumCode.SUCCESS.message(), null);
+        return new Response<>(GlobalResponseCode.SUCCESS.code(), GlobalResponseCode.SUCCESS.message(), null);
     }
 
     public static <T> Response<T> success(T data){
-        return new Response<>(GlobalEnumCode.SUCCESS.code(), GlobalEnumCode.SUCCESS.message(), data);
+        return new Response<>(GlobalResponseCode.SUCCESS.code(), GlobalResponseCode.SUCCESS.message(), data);
     }
 
 }
