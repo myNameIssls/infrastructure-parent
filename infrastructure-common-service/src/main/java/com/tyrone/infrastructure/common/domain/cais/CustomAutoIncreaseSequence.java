@@ -1,7 +1,7 @@
 package com.tyrone.infrastructure.common.domain.cais;
 
 import com.tyrone.infrastructure.sdk.common.domain.cais.SegmentRule;
-import com.tyrone.infrastructure.sdk.common.pl.GenCAISIdCommand;
+import com.tyrone.infrastructure.sdk.common.pl.GenCAISIdRequest;
 import jakarta.persistence.Column;
 import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
@@ -30,7 +30,7 @@ public class CustomAutoIncreaseSequence {
 
     public CustomAutoIncreaseSequence(){}
 
-    public CustomAutoIncreaseSequence(GenCAISIdCommand cmd){
+    public CustomAutoIncreaseSequence(GenCAISIdRequest cmd){
 
         this.caisId = new CAISId(cmd.getPrefix(), cmd.getSegmentRule().getSegmentRuleValue());
         this.initialValue = new AtomicInteger(1);
@@ -62,7 +62,7 @@ public class CustomAutoIncreaseSequence {
 
     public static void main(String[] args) {
         SegmentRule segmentRule = new SegmentRule.LocalDateTimeSegmentRule();
-        GenCAISIdCommand command = new GenCAISIdCommand();
+        GenCAISIdRequest command = new GenCAISIdRequest();
         command.setSegmentRule(segmentRule);
         command.setPrefix("CZ");
         command.setJoiner("-");

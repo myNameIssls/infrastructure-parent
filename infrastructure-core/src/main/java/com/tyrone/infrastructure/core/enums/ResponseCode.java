@@ -1,6 +1,6 @@
 package com.tyrone.infrastructure.core.enums;
 
-public interface EnumCode {
+public interface ResponseCode {
 
     String code();
 

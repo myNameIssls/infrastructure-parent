@@ -1,6 +1,11 @@
+server:
+  port: 8082
+  servlet:
+    context-path: /common
+
 spring:
   application:
-    name: order-biz-services
+    name: infrastructure-common-service
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
     driver-class-name: com.mysql.cj.jdbc.Driver

@@ -2,7 +2,7 @@ package com.tyrone.infrastructure.common.domain.cais;
 
 import com.tyrone.infrastructure.common.acl.port.repository.CAISRepository;
 import com.tyrone.infrastructure.core.pl.Response;
-import com.tyrone.infrastructure.sdk.common.pl.GenCAISIdCommand;
+import com.tyrone.infrastructure.sdk.common.pl.GenCAISIdRequest;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DuplicateKeyException;
 import org.springframework.stereotype.Service;
@@ -17,7 +17,7 @@ public class CAISService {
     private final CAISRepository caisRepository;
 
     @Transactional
-    public Response<String> generate(GenCAISIdCommand cmd) {
+    public Response<String> generate(GenCAISIdRequest cmd) {
 
         CAISId caisId = new CAISId(cmd.getPrefix(), cmd.getSegmentRule().getSegmentRuleValue());
         CustomAutoIncreaseSequence cais = caisRepository.findByIdLock(caisId);

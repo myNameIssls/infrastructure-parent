@@ -1,8 +1,7 @@
 package com.tyrone.infrastructure.core.enums;
 
-public enum GlobalResponseCode implements EnumCode {
+public enum GlobalResponseCode implements ResponseCode {
 
-    // 正常
     SUCCESS("000000", "成功"),
 
     ;
@@ -18,11 +17,11 @@ public enum GlobalResponseCode implements EnumCode {
 
     @Override
     public String code() {
-        return null;
+        return this.code;
     }
 
     @Override
     public String message() {
-        return null;
+        return this.message;
     }
 }

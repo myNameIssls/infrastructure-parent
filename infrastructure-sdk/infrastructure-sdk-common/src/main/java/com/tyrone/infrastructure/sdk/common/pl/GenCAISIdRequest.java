@@ -1,6 +1,6 @@
 package com.tyrone.infrastructure.sdk.common.pl;
 
-import com.tyrone.infrastructure.core.domain.AbstractCommand;
+import com.tyrone.infrastructure.core.domain.AbstractRequest;
 import com.tyrone.infrastructure.sdk.common.domain.cais.SegmentRule;
 import lombok.Builder;
 import lombok.Getter;
@@ -8,7 +8,7 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class GenCAISIdCommand extends AbstractCommand {
+public class GenCAISIdRequest extends AbstractRequest {
 
     private String prefix;
 

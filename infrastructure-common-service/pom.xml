@@ -28,6 +28,11 @@
             <artifactId>infrastructure-sdk-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>com.tyrone.infrastructure</groupId>
+            <artifactId>infrastructure-sdk-outreach</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>

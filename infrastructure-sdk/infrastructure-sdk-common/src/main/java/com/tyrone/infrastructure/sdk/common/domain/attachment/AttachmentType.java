@@ -1,8 +1,8 @@
 package com.tyrone.infrastructure.sdk.common.domain.attachment;
 
-import com.tyrone.infrastructure.core.enums.EnumCode;
+import com.tyrone.infrastructure.core.enums.ResponseCode;
 
-public enum AttachmentType  implements EnumCode {
+public enum AttachmentType  implements ResponseCode {
 
     ID_CARD("ID_CARD", "身份证"),
 

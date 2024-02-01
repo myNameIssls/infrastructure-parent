@@ -24,7 +24,16 @@
         <commons.lang3.version>3.14.0</commons.lang3.version>
         <mysql.version>8.0.28</mysql.version>
         <hibernate.core.version>5.4.32.Final</hibernate.core.version>
+        <x-file-storage.version>2.1.0</x-file-storage.version>
+        <aliyun-sdk-oss.version>3.16.1</aliyun-sdk-oss.version>
     </properties>
+
+<!--    <dependency>-->
+<!--        <groupId>com.aliyun.oss</groupId>-->
+<!--        <artifactId>aliyun-sdk-oss</artifactId>-->
+<!--        <version>3.16.1</version>-->
+<!--    </dependency>-->
+
 
     <dependencyManagement>
 
@@ -86,8 +95,19 @@
             <dependency>
                 <groupId>org.hibernate</groupId>
                 <artifactId>hibernate-core</artifactId>
-                <version>5.4.32.Final</version>
+                <version>${hibernate.core.version}</version>
             </dependency>
+            <dependency>
+                <groupId>org.dromara.x-file-storage</groupId>
+                <artifactId>x-file-storage-spring</artifactId>
+                <version>${x-file-storage.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.aliyun.oss</groupId>
+                <artifactId>aliyun-sdk-oss</artifactId>
+                <version>${aliyun-sdk-oss.version}</version>
+            </dependency>
+
         </dependencies>
 
     </dependencyManagement>
