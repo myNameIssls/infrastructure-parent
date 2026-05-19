@@ -1,16 +1,31 @@
 # Infrastructure 基础设施底座
 
-企业级 B 端项目基础设施底座，基于 Spring Boot 3.2 + Spring Cloud 2023 构建，提供网关、公共服务、外联服务、认证服务等核心能力。
+企业级 B 端项目基础设施底座，基于 Spring Boot 3.3 + Spring Cloud 2023 构建，提供网关、公共服务、外联服务、认证服务等核心能力。
 
 ## 技术栈
 
 - **Java**: 21
-- **Spring Boot**: 3.2.1
-- **Spring Cloud**: 2023.0.0
-- **数据库**: MySQL 8.0
-- **ORM**: Spring Data JPA + Hibernate
+- **Spring Boot**: 3.3.7
+- **Spring Cloud**: 2023.0.5
+- **数据库**: MySQL 8.0.33
+- **ORM**: Spring Data JPA + Hibernate 5.6.15.Final
 - **构建工具**: Maven
-- **其他工具**: Lombok, MapStruct, Hutool, Jackson
+- **其他工具**: Lombok 1.18.36, MapStruct 1.5.5.Final, Hutool 5.8.26, Jackson
+
+## 依赖版本说明
+
+| 依赖名称 | GroupId | ArtifactId | 版本 | 说明 |
+|---------|---------|------------|------|------|
+| Spring Boot | org.springframework.boot | spring-boot-dependencies | 3.3.7 | 核心框架 |
+| Spring Cloud | org.springframework.cloud | spring-cloud-dependencies | 2023.0.5 | 微服务组件 |
+| Hutool | cn.hutool | hutool-all | 5.8.26 | Java工具库 |
+| Lombok | org.projectlombok | lombok | 1.18.36 | 注解处理器 |
+| MapStruct | org.mapstruct | mapstruct | 1.5.5.Final | 对象映射 |
+| Commons Lang3 | org.apache.commons | commons-lang3 | 3.14.0 | 语言工具 |
+| MySQL Connector | mysql | mysql-connector-j | 8.0.33 | 数据库驱动 |
+| Hibernate Core | org.hibernate | hibernate-core | 5.6.15.Final | ORM框架 |
+| X-File-Storage | org.dromara.x-file-storage | x-file-storage-spring | 2.2.2 | 文件存储 |
+| 阿里云 OSS SDK | com.aliyun.oss | aliyun-sdk-oss | 3.17.3 | 云存储 |
 
 ## 整体架构
 
