@@ -12,6 +12,107 @@
 - **构建工具**: Maven
 - **其他工具**: Lombok, MapStruct, Hutool, Jackson
 
+## 整体架构
+
+### DDD 分层架构
+
+```mermaid
+graph TB
+    subgraph "表现层 (Presentation Layer)"
+        Controller[Controller<br>请求接收与响应]
+        Gateway[Gateway Service<br>请求路由/负载均衡]
+    end
+
+    subgraph "应用层 (Application Layer)"
+        Service[Application Service<br>业务流程编排]
+    end
+
+    subgraph "领域层 (Domain Layer)"
+        Entity[Entity<br>实体基类]
+        VO[Value Object<br>值对象]
+        Aggregate[Aggregate<br>聚合根]
+        DomainService[Domain Service<br>领域服务]
+        DomainEvent[Domain Event<br>领域事件]
+        RepositoryI[Repository Interface<br>仓储接口]
+    end
+
+    subgraph "基础设施层 (Infrastructure Layer)"
+        RepositoryImpl[Repository Implementation<br>仓储实现]
+        Config[Configuration<br>配置管理]
+        Utils[Utilities<br>工具类]
+        ExceptionHandler[Global Exception Handler<br>全局异常处理]
+    end
+
+    Gateway --> Controller
+    Controller --> Service
+    Service --> DomainService
+    Service --> Aggregate
+    Aggregate --> Entity
+    Aggregate --> VO
+    DomainService --> DomainEvent
+    RepositoryI --> RepositoryImpl
+    RepositoryImpl --> Config
+    RepositoryImpl --> Utils
+    ExceptionHandler --> Utils
+```
+
+### 微服务架构
+
+```mermaid
+graph TB
+    Client[客户端]
+    
+    subgraph "网关层"
+        Gateway[infrastructure-gateway-service<br>统一入口/路由/负载均衡]
+    end
+    
+    subgraph "业务服务层"
+        Auth[infrastructure-auth-service<br>认证/授权]
+        Common[infrastructure-common-service<br>公共业务]
+        Outreach[infrastructure-outreach-service<br>外部服务集成/文件存储]
+    end
+    
+    subgraph "基础设施层"
+        Core[infrastructure-core<br>领域模型/工具类/异常处理]
+        SDK[infrastructure-sdk<br>服务调用SDK]
+    end
+    
+    Client --> Gateway
+    Gateway --> Auth
+    Gateway --> Common
+    Gateway --> Outreach
+    Auth --> Core
+    Common --> Core
+    Outreach --> Core
+    Common --> SDK
+    Outreach --> SDK
+```
+
+### 模块依赖关系
+
+```mermaid
+graph BT
+    Dependencies[infrastructure-dependencies<br>依赖版本管理]
+    Core[infrastructure-core<br>核心基础设施]
+    Common[infrastructure-common-service<br>公共服务]
+    Gateway[infrastructure-gateway-service<br>网关服务]
+    Outreach[infrastructure-outreach-service<br>外联服务]
+    Auth[infrastructure-auth-service<br>认证服务]
+    SDK[infrastructure-sdk<br>SDK模块]
+    Samples[infrastructure-samples<br>示例代码]
+    
+    Core --> Dependencies
+    Common --> Core
+    Gateway --> Dependencies
+    Outreach --> Core
+    Auth --> Core
+    SDK --> Core
+    Samples --> Core
+    Samples --> Common
+    Samples --> Gateway
+    Samples --> Auth
+```
+
 ## 项目结构
 
 ```
