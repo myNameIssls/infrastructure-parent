@@ -59,21 +59,4 @@ public class CustomAutoIncreaseSequence {
 
     }
 
-
-    public static void main(String[] args) {
-        SegmentRule segmentRule = new SegmentRule.LocalDateTimeSegmentRule();
-        GenCAISIdRequest command = new GenCAISIdRequest();
-        command.setSegmentRule(segmentRule);
-        command.setPrefix("CZ");
-        command.setJoiner("-");
-
-        CustomAutoIncreaseSequence cais = new CustomAutoIncreaseSequence(command);
-        String format = cais.format();
-        System.out.println(format);
-        cais.increase();
-        format = cais.format();
-        System.out.println(format);
-
-    }
-
 }

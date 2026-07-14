@@ -2,13 +2,14 @@ package com.tyrone.infrastructure.sdk.common.pl;
 
 import com.tyrone.infrastructure.core.domain.AbstractRequest;
 import com.tyrone.infrastructure.sdk.common.domain.cais.SegmentRule;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.Setter;
+import com.tyrone.infrastructure.sdk.common.domain.cais.SequenceType;
+import lombok.*;
 
 @Builder
 @Getter
 @Setter
+@NoArgsConstructor
+@AllArgsConstructor
 public class GenCAISIdRequest extends AbstractRequest {
 
     private String prefix;
@@ -23,5 +24,8 @@ public class GenCAISIdRequest extends AbstractRequest {
 
     @Builder.Default
     private String joiner = "";
+
+    @Builder.Default
+    private SequenceType sequenceType = SequenceType.DATABASE;
 
 }
