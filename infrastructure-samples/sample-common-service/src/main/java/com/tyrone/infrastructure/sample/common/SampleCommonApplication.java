@@ -5,9 +5,16 @@ import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
+import java.util.concurrent.ThreadPoolExecutor;
+
 @Slf4j
 @SpringBootApplication
 public class SampleCommonApplication implements CommandLineRunner {
+
+    public static final ThreadLocal<String> userIdHolder = new ThreadLocal<>();
+
+    ThreadPoolExecutor executor;
+
     public static void main(String[] args) {
         SpringApplication.run(SampleCommonApplication.class, args);
     }
